@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int factorial(int num) {
+    if (num == 0) return 1;
+    return num * factorial(num - 1);
+}
+
+int main() {
+    int start, end, num, remainder, sum, i;
+    printf("Enter the start of the range: ");
+    scanf("%d", &start);
+    printf("Enter the end of the range: ");
+    scanf("%d", &end);
+
+    printf("Strong numbers in the range [%d, %d]: ", start, end);
+    for (i = start; i <= end; i++) {
+        num = i;
+        sum = 0;
+        while (num > 0) {
+            remainder = num % 10;
+            sum += factorial(remainder);
+            num /= 10;
+        }
+        if (sum == i) {
+            printf("%d ", i);
+        }
+    }
+
+    return 0;
+}
