@@ -1,0 +1,42 @@
+include <stdio.h>
+#include <math.h>
+
+int main() {
+   int lowerLimit, upperLimit, number, originalNumber, remainder, result, n;
+
+   printf("Enter the lower limit: ");
+   scanf("%d", &lowerLimit);
+
+   printf("Enter the upper limit: ");
+   scanf("%d", &upperLimit);
+
+   printf("Armstrong numbers between %d and %d are: ", lowerLimit, upperLimit);
+
+   for (number = lowerLimit; number <= upperLimit; ++number) {
+      result = 0;
+      n = 0;
+      originalNumber = number;
+
+      // count number of digits
+      while (originalNumber != 0) {
+         originalNumber /= 10;
+         ++n;
+      }
+
+      originalNumber = number;
+
+      // find sum of nth power of digits
+      while (originalNumber != 0) {
+         remainder = originalNumber % 10;
+         result += pow(remainder, n);
+         originalNumber /= 10;
+      }
+
+      // check if the number is Armstrong or not
+      if (result == number) {
+         printf("%d ", number);
+      }
+   }
+
+   return 0;
+}
