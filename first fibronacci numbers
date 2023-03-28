@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main()
+{
+    int n, i, fib1 = 0, fib2 = 1, fib3;
+
+    printf("Enter the number of Fibonacci numbers to be printed: ");
+    scanf("%d", &n);
+
+    printf("%d %d ", fib1, fib2);  // printing the first two Fibonacci numbers
+
+    for (i = 3; i <= n; i++)
+    {
+        fib3 = fib1 + fib2;
+        printf("%d ", fib3);
+        fib1 = fib2;
+        fib2 = fib3;
+    }
+
+    return 0;
+}
