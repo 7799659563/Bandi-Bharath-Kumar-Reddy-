@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+void trim(char *str) {
+    int i, j;
+
+  
+    i = 0;
+    while (isspace(str[i])) {
+        i++;
+    }
+    if (i > 0) {
+        memmove(str, str+i, strlen(str)-i+1);
+    }
+
+   
+    j = strlen(str)-1;
+    while (j > 0 && isspace(str[j])) {
+        j--;
+    }
+    str[j+1] = '\0';
+}
+
+int main() {
+    char str[100];
+
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+
+    trim(str);
+
+    printf("Trimmed string: %s\n", str);
+
+    return 0;
+}
