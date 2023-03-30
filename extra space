@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+
+void removeExtraSpaces(char* str);
+
+int main() {
+    char str[100];
+
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+
+    removeExtraSpaces(str);
+
+    printf("Modified string: %s", str);
+
+    return 0;
+}
+
+void removeExtraSpaces(char* str) {
+    int i, j;
+    for(i = 0, j = 0; str[i]; i++) {
+        if(str[i] != ' ' || (i > 0 && str[i-1] != ' ')) {
+            str[j++] = str[i];
+        }
+    }
+    str[j] = '\0';
+}
