@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+void removeChar(char *string, char c) {
+    int i, j;
+
+    for (i = 0, j = 0; string[i] != '\0'; i++) {
+        if (string[i] != c) {
+            string[j++] = string[i];
+        }
+    }
+    string[j] = '\0';
+}
+
+int main() {
+    char string[100], c;
+
+    printf("Enter a string: ");
+    scanf("%s", string);
+
+    printf("Enter the character to remove: ");
+    scanf(" %c", &c);
+
+    removeChar(string, c);
+
+    printf("String after removing '%c': %s", c, string);
+
+    return 0;
+}
